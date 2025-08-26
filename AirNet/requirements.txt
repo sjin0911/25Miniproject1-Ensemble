@@ -1,0 +1,5 @@
+# Python 버전은 pip에서 강제 안 되니까 주석으로만 남겨둠
+# python==3.8.11
+Python == 3.8.11
+Pytorch == 1.7.0
+mmcv-full == 1.3.11
