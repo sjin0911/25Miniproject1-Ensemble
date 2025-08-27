@@ -1,0 +1,52 @@
+{
+  "os": "Linux-6.1.123+-x86_64-with-glibc2.35",
+  "python": "CPython 3.12.11",
+  "startedAt": "2025-08-27T02:26:25.724306Z",
+  "args": [
+    "--config",
+    "allweather.yml",
+    "--resume",
+    "/content/drive/MyDrive/miniproject1/WeatherDiff64.pth.tar",
+    "--test_set",
+    "raindrop",
+    "--sampling_timesteps",
+    "10",
+    "--grid_r",
+    "4"
+  ],
+  "program": "/content/Weather-Diffusion/eval_diffusion.py",
+  "codePath": "eval_diffusion.py",
+  "codePathLocal": "eval_diffusion.py",
+  "git": {
+    "remote": "https://github.com/e-jungs2/Weather-Diffusion.git",
+    "commit": "ed91bd190f8a452f5b97b98e64f8554e7182276f"
+  },
+  "email": "ity0526@gmail.com",
+  "root": "/content/Weather-Diffusion",
+  "host": "f78d18218351",
+  "executable": "/usr/bin/python3",
+  "cpu_count": 1,
+  "cpu_count_logical": 2,
+  "gpu": "Tesla T4",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "120942624768",
+      "used": "41927233536"
+    }
+  },
+  "memory": {
+    "total": "13608370176"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "Tesla T4",
+      "memoryTotal": "16106127360",
+      "cudaCores": 2560,
+      "architecture": "Turing",
+      "uuid": "GPU-bca5b83a-a157-fd8c-0902-0149e456e274"
+    }
+  ],
+  "cudaVersion": "12.4",
+  "writerId": "2he2aopkyfjtj46qqzjf9evkszmltd99"
+}

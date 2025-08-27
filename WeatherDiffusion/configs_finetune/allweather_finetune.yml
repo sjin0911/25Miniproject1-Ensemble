@@ -1,0 +1,53 @@
+data:
+  dataset: "AllWeather"                       # ↓ 이 이름을 쓰는 로더를 우리가 구현
+  image_size: 256
+  channels: 3
+  num_workers: 0                              # Colab은 0
+  data_dir: "/content/Weather-Diffusion/dataset"  # ← 네 폴더: dataset/{dust,fog,rain}/...
+  conditional: true
+  tasks: ["dust","fog","rain"]   # 필요 시 태스크 부분집합만 지정해도 됨
+
+model:
+  in_channels: 3
+  out_ch: 3
+  ch: 128
+  ch_mult: [1, 2, 3, 4]
+  num_res_blocks: 2
+  attn_resolutions: [16]
+  dropout: 0.0
+  ema_rate: 0.9999
+  ema: true
+  resamp_with_conv: true
+
+diffusion:
+  beta_schedule: linear
+  beta_start: 0.0001
+  beta_end: 0.02
+  num_diffusion_timesteps: 1000
+
+training:
+  patch_n: 1
+  batch_size: 2          # ← 스모크: 지금은 1, 본학습 때 4로만 바꾸면 됨
+  n_epochs: 10            # ← 스모크: 지금은 1, 본학습 때 20~25로 바꾸면 됨
+  n_iters: 0
+  snapshot_freq: 1
+  validation_freq: 1
+
+sampling:
+  batch_size: 1
+  last_only: true
+
+optim:
+  weight_decay: 0.01
+  optimizer: "AdamW"
+  lr: 0.00005
+  amsgrad: false
+  eps: 1.0e-8
+
+# (옵션) 코드가 읽을 수 있으면 함께 사용
+scheduler:
+  name: cosine
+  warmup_epochs: 2
+loss:
+  name: l1_ssim
+  alpha: 0.84
