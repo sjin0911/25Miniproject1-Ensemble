@@ -25,7 +25,7 @@ class AllWeather:
             print("=> evaluating outdoor rain-fog test set...")
             path = os.path.join(self.config.data.data_dir, 'data', 'outdoor-rain')
             filename = 'test1.txt'
-        else:   # snow
+        else:  # snow
             print("=> evaluating snowtest100K-L...")
             path = os.path.join(self.config.data.data_dir, 'data', 'snow100k')
             filename = 'snowtest100k_L.txt'
@@ -39,7 +39,7 @@ class AllWeather:
         val_dataset = AllWeatherDataset(path, n=self.config.training.patch_n,
                                         patch_size=self.config.data.image_size,
                                         transforms=self.transforms,
-                                        filelist=filename,
+                                        filelist=None,
                                         parse_patches=parse_patches)
 
         if not parse_patches:
@@ -61,11 +61,29 @@ class AllWeatherDataset(torch.utils.data.Dataset):
         super().__init__()
 
         self.dir = dir
-        train_list = os.path.join(dir, filelist)
-        with open(train_list) as f:
-            contents = f.readlines()
-            input_names = [i.strip() for i in contents]
-            gt_names = [i.strip().replace('input', 'gt') for i in input_names]
+        if filelist is None:
+            # ✅ filelist 지정이 없으면 폴더 직접 탐색
+            input_dir = os.path.join(dir, "input")
+            gt_dir = os.path.join(dir, "gt")
+
+            input_images = [f for f in listdir(input_dir) if isfile(os.path.join(input_dir, f))]
+            gt_images = [f for f in listdir(gt_dir) if isfile(os.path.join(gt_dir, f))]
+
+            # ✅ 정렬해서 index 기준으로 매칭
+            input_images.sort()
+            gt_images.sort()
+
+            print(f"Found {len(input_images)} input images and {len(gt_images)} gt images")
+
+            input_names = [os.path.join("input", f) for f in input_images]
+            gt_names = [os.path.join("gt", f) for f in gt_images]
+
+        else:
+            train_list = os.path.join(dir, filelist)
+            with open(train_list) as f:
+                contents = f.readlines()
+                input_names = [i.strip() for i in contents]
+                gt_names = [i.strip().replace('input', 'gt') for i in input_names]
 
         self.input_names = input_names
         self.gt_names = gt_names
@@ -133,3 +151,4 @@ class AllWeatherDataset(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.input_names)
+
