@@ -15,7 +15,13 @@ Please check >> **AirNet/Demo.py** <<
 Not yet implemented
 
 ### single file (= 1 image) voting ensemble
-<pre> python vote_ensemble_multi.py \ --model1 /path/m1.png \ --model2 /path/m2.png \ --model3 /path/m3.png \ --gt /path/gt.png \ --outdir /path/out --smooth 5 </pre>
+<pre> python vote_ensemble_multi.py \
+  --model1 /path/m1.png \
+  --model2 /path/m2.png \
+  --model3 /path/m3.png \
+  --gt /path/gt.png \
+  --outdir /path/out \
+  --smooth 5 </pre>
 ### multi files (= n image) voting ensemble
 <pre> python vote_ensemble_multi.py \
   --m1_dir /content/.../model1_folder \
@@ -24,3 +30,20 @@ Not yet implemented
   --gt_dir /content/.../GT_folder \
   --outdir /content/.../vote_result --smooth 5 \
   --csv /content/.../vote_summary.csv </pre>
+
+### single file (= 1 image) blending ensemble
+<pre> python blend_ensemble_patch_batch_multi.py \
+  --model1 /path/m1.png \
+  --model2 /path/m2.png \
+  --model3 /path/m3.png \
+  --model4 /path/m4.png \
+  --gt /path/gt.png \
+  --outdir /path/out </pre>
+### multi files (= n image) blending ensemble
+<pre> python blend_ensemble_patch_batch_multi.py \
+  --m1_dir /content/.../model1 \
+  --m2_dir /content/.../model2 \
+  --m3_dir /content/.../model3 \
+  --gt_dir /content/.../GT \
+  --outdir /content/.../blend_result \
+  --csv /content/.../blend_summary.csv </pre>
