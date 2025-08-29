@@ -14,6 +14,7 @@ use All.pth
 Please check >> **AirNet/Demo.py** <<
 Not yet implemented
 
+### Voting Ensemble Result
 ![Voting Ensemble Result](Ensemble_result/voting.png)
 
 ### single file (= 1 image) voting ensemble
@@ -32,6 +33,9 @@ Not yet implemented
   --gt_dir /content/.../GT_folder \
   --outdir /content/.../vote_result --smooth 5 \
   --csv /content/.../vote_summary.csv </pre>
+
+### Blending Ensemble Result
+![Blending Ensemble Result](Ensemble_result/Blending.png)
 
 ### single file (= 1 image) blending ensemble
 <pre> python blend_ensemble_patch_batch_multi.py \
