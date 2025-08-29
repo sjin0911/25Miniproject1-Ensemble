@@ -14,5 +14,13 @@ use All.pth
 Please check >> **AirNet/Demo.py** <<
 Not yet implemented
 
-**single** file voting ensemble
+### single file (= 1 image) voting ensemble
 <pre> python vote_ensemble_multi.py \ --model1 /path/m1.png \ --model2 /path/m2.png \ --model3 /path/m3.png \ --gt /path/gt.png \ --outdir /path/out --smooth 5 </pre>
+### multi files (= n image) voting ensemble
+<pre> python vote_ensemble_multi.py \
+  --m1_dir /content/.../model1_folder \
+  --m2_dir /content/.../model2_folder \
+  --m3_dir /content/.../model3_folder \
+  --gt_dir /content/.../GT_folder \
+  --outdir /content/.../vote_result --smooth 5 \
+  --csv /content/.../vote_summary.csv </pre>
