@@ -14,6 +14,8 @@ use All.pth
 Please check >> **AirNet/Demo.py** <<
 Not yet implemented
 
+![Voting Ensemble Result](Ensemble_result/voting.png)
+
 ### single file (= 1 image) voting ensemble
 <pre> python vote_ensemble_multi.py \
   --model1 /path/m1.png \
