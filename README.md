@@ -13,3 +13,13 @@ use All.pth
 ### AirNet Inference
 Please check >> **AirNet/Demo.py** <<
 Not yet implemented
+
+**single** file voting ensemble
+'''
+python vote_ensemble_multi.py \
+  --model1 /path/m1.png \
+  --model2 /path/m2.png \
+  --model3 /path/m3.png \
+  --gt     /path/gt.png \
+  --outdir /path/out --smooth 5
+'''
