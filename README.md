@@ -22,7 +22,7 @@ Not yet implemented
   --gt /path/gt.png \
   --outdir /path/out \
   --smooth 5 </pre>
-### multi files (= n image) voting ensemble
+### multi files (= n images) voting ensemble
 <pre> python vote_ensemble_multi.py \
   --m1_dir /content/.../model1_folder \
   --m2_dir /content/.../model2_folder \
@@ -39,7 +39,7 @@ Not yet implemented
   --model4 /path/m4.png \
   --gt /path/gt.png \
   --outdir /path/out </pre>
-### multi files (= n image) blending ensemble
+### multi files (= n images) blending ensemble
 <pre> python blend_ensemble_patch_batch_multi.py \
   --m1_dir /content/.../model1 \
   --m2_dir /content/.../model2 \
