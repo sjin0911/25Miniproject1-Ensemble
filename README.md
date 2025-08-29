@@ -35,7 +35,7 @@ Not yet implemented
   --csv /content/.../vote_summary.csv </pre>
 
 ### Blending Ensemble Result
-![Blending Ensemble Result](Ensemble_result/Blending.png)
+![Blending Ensemble Result](Ensemble_result/blending.png)
 
 ### single file (= 1 image) blending ensemble
 <pre> python blend_ensemble_patch_batch_multi.py \
